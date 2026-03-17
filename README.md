@@ -1,5 +1,7 @@
 # Entropy Canvas
 
+![Entropy Canvas Demo](assets/demo.gif)
+
 Entropy Canvas is a local-first visual password forge built with Python and a canvas-based frontend. It uses user interaction as one input, combines that with cryptographic OS randomness, and derives a strong password or passphrase without persisting raw interaction data beyond the active session.
 
 ## Features
@@ -97,3 +99,7 @@ These benchmarks are intended to evaluate output behavior and design properties.
 ## Why I Built It
 
 Most security projects are technically useful but visually forgettable. Entropy Canvas was built to explore whether password generation could be both security-focused and visually distinctive, while still using a defensible local generation model.
+
+## Themes
+
+![Entropy Canvas Themes](assets/themes.gif)
