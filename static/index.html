@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entropy Canvas</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body data-theme="default">
+    <div class="background-grid"></div>
+    <canvas id="scene"></canvas>
+
+    <main class="shell">
+      <section class="panel intro-panel">
+        <div class="eyebrow">Local visual password forge</div>
+        <h1>Entropy Canvas</h1>
+        <p class="subtitle">
+          Stir the particle field, shape the light, then forge a strong secret
+          locally from interaction data plus secure OS randomness.
+        </p>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <span class="stat-label">Session fingerprint</span>
+            <span
+              class="stat-value stat-value-mono"
+              id="fingerprintPreview"
+              title="Session fingerprint"
+              >--</span
+            >
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Events captured</span>
+            <span class="stat-value" id="eventCount">0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Forge readiness</span>
+            <span class="stat-value" id="readinessLabel">Low</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel control-panel">
+        <div class="control-group">
+          <label for="preset">Output preset</label>
+          <select id="preset">
+            <option value="website">Website password</option>
+            <option value="enterprise" selected>Enterprise password</option>
+            <option value="developer">Developer password</option>
+            <option value="passphrase">Passphrase</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="theme">Visual theme</label>
+          <select id="theme">
+            <option value="default" selected>Default (Nebula)</option>
+            <option value="forest">Forest Roots</option>
+            <option value="prism">Prism Bloom</option>
+            <option value="ember">Volcanic Ember</option>
+          </select>
+        </div>
+
+        <div class="entropy-block">
+          <div class="entropy-header">
+            <span>Interaction energy</span>
+            <span id="entropyScore">0%</span>
+          </div>
+          <div class="meter-track">
+            <div class="meter-fill" id="meterFill"></div>
+          </div>
+          <div class="signal-grid">
+            <div class="signal-pill">
+              <span>Coverage</span>
+              <strong id="coverageValue">0</strong>
+            </div>
+            <div class="signal-pill">
+              <span>Turns</span>
+              <strong id="turnValue">0</strong>
+            </div>
+            <div class="signal-pill">
+              <span>Pauses</span>
+              <strong id="pauseValue">0</strong>
+            </div>
+            <div class="signal-pill">
+              <span>Clicks</span>
+              <strong id="clickValue">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="forgeButton" class="primary" disabled>
+            Forge secret
+          </button>
+          <button id="resetButton" class="secondary">Reset session</button>
+        </div>
+
+        <p class="microcopy">
+          Raw interaction is used only inside this local session. The final
+          secret is derived from interaction data combined with cryptographic OS
+          randomness.
+        </p>
+      </section>
+
+      <section class="panel output-panel">
+        <div class="output-header">
+          <div>
+            <div class="eyebrow">Forged output</div>
+            <h2 id="outputLabel">No secret forged yet</h2>
+          </div>
+          <div class="security-chip" id="strengthChip">Awaiting entropy</div>
+        </div>
+
+        <div class="secret-box" id="secretBox">
+          Move through the canvas to begin.
+        </div>
+
+        <div class="output-actions">
+          <button id="copyButton" class="secondary" disabled>Copy</button>
+          <button id="clearClipboardButton" class="secondary" disabled>
+            Clear clipboard
+          </button>
+        </div>
+
+        <div class="report-grid">
+          <div class="report-card">
+            <span class="report-label">Approx. strength</span>
+            <strong id="bitsValue">--</strong>
+          </div>
+          <div class="report-card">
+            <span class="report-label">Interaction hash preview</span>
+            <strong id="hashPreview">--</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

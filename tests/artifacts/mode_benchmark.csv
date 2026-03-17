@@ -1,0 +1,5 @@
+mode,samples,theoretical_bits,fixed_input_unique_outputs,fixed_input_collisions,varied_input_unique_outputs,varied_input_collisions,input_contribution_unique_outputs,avalanche_percent,cryptographic_rng,uses_interaction,notes
+Mixed,3000,146,3000,0,3000,0,3000,98.5,Yes,Yes,Current Entropy Canvas design (interaction + OS randomness)
+Secrets only,3000,146,3000,0,3000,0,1,0.0,Yes,No,OS-backed randomness only
+Interaction only,3000,146,1,2999,3000,0,3000,98.44,No,Yes,No OS randomness; deterministic from interaction path
+Random only,3000,146,3000,0,3000,0,1,0.0,No,No,Python random / Mersenne Twister
